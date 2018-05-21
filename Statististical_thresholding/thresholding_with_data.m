@@ -22,7 +22,7 @@ function [error_data,rate_thresh] = thresholding_with_data(point_data,T,thresh_m
 if not(iscell(point_data))
     point_cell{1} = point_data;
 else
-    point_cell = point_data;
+    point_cell = reshape(point_data, max(size(point_data)),1);
 end
     
 
