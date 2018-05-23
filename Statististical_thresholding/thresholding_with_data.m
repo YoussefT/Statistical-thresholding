@@ -63,7 +63,7 @@ if plot_id
     if strcmp(thresh_method,'dm-l') || strcmp(thresh_method,'lrt-l') || strcmp(thresh_method,'lrt-i') || strcmp(thresh_method,'lrt-g')
         title(strcat(upper(thresh_method),' thresholding between levels',{' '},num2str(j0),' and',{' '},num2str(Jmax)))
     elseif strcmp(thresh_method,'linear')
-        title(strcat('No thresholding and projection on space V_',num2str(Jmax)))
+        title(strcat('No thresholding and projection on space V_{',num2str(Jmax),'}'))
     end
 
     legend({'Estimated Intensity'},'Position',[0.718 0.825 0.1 0.1])
