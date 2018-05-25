@@ -5,8 +5,8 @@ rate_est = thresholding_linear(points,t,T,j0);
 
 
 pvalue = zeros(2^(J+1)-1,3);
-m = 2^(J+1) - 2^(j0);
-idx = 1:1:m ;
+Q = 2^(J+1) - 2^(j0);
+idx = 1:1:Q ;
 qm = q/sum(idx.^-1);
 M = size(points,1);
 counts = cell(M,J-j0+1);
@@ -30,7 +30,7 @@ pvalue = pvalue(2^(j0):2^(J+1)-1,:);
 pvalue = sortrows(pvalue,1);
 
 i = 1;
-while (i <= m && pvalue(i,1) <= qm*i/m)
+while (i <= Q && pvalue(i,1) <= qm*i/Q)
     i = i+1;
 end
 
@@ -40,7 +40,7 @@ if i > 1
         k = pvalue(p,3);
         counts2mat = cell2mat(counts(:,j-j0+1));
         beta_jk = (2^(j/2))*(mean(counts2mat(:,2*k+1),1)-mean(counts2mat(:,2*k+2),1))/sqrt(T);
-        rate_est = rate_est + 2^(j/2)*haar_func((2^j)*t-k*T,1)*beta_jk;
+        rate_est = rate_est + 2^(j/2)*haar_func((2^j)*t-k*T,T)*beta_jk;
     end
 end
 
