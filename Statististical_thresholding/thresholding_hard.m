@@ -1,7 +1,7 @@
 function [ rate_est ] = thresholding_hard( points,t,T,j0,J,c )
 
 %%% Estimate initial projection on V_j0
-rate_est = thresholding_linear(points,t,T,J);
+rate_est = thresholding_linear(points,t,T,j0);
 
 
 betas_rec = zeros(J-j0+1,2^J);
