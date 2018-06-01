@@ -7,7 +7,7 @@ for m = 1:M
 end
 coeff = 2^(J/2)*mean(counts,1)/sqrt(T);
 S = repmat(coeff',1,length(t));
-H = squeeze(haar_base_father(t,0,T,J));
+H = reshape(squeeze(haar_base_father(t,0,T,J)),2^J,length(t));
 w = S.*H;
 rate_est = sum(w,1);
 
