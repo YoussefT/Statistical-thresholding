@@ -1,5 +1,7 @@
 function [ test, pvalue, R ] = innovation_test(points,T,L,alpha)
 
+%Performs the likelihood ratio test for absence of L-th level innovation in point process data.
+
 if not(iscell(points))
     point_cell{1} = points;
 else
