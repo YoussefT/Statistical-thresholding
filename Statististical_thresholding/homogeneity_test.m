@@ -1,5 +1,7 @@
 function [ test, pvalue, R ] = homogeneity_test(points,T,J,alpha)
 
+%Performs J-th level homegeneity likelihood ratio test on point process data.
+
 if not(iscell(points))
     point_cell{1} = points;
 else
